@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opération Louvre : La Résistance (Money Heist x Révolution Française)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/comfortaa.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎭</text></svg>">
+</head>
+<body>
+
+  <!-- MASTER WEBTOY CONTAINER -->
+  <div id="webtoy-container">
+
+    <!-- 1. TOP AUTOPLAY PROGRESS BAR -->
+    <div class="autoplay-progress-container" id="autoplay-progress-container" title="Progression du défilement automatique">
+      <div class="autoplay-progress-bar" id="autoplay-progress-bar"></div>
+    </div>
+
+    <!-- 2. ENTIRELY NEW BACKGROUND: FAMOUS FRENCH QUOTES LITERARY AMBIENCE -->
+    <div class="french-quotes-backdrop" id="french-quotes-backdrop">
+      <div class="quotes-vignette-layer"></div>
+
+      <!-- Centerpiece Active French Quote Banner (Synchronized with each wing) -->
+      <div class="active-quote-display" id="active-quote-display">
+        <div class="quote-french-republic-badge">
+          <span>🏛️</span> <span id="quote-badge-text">RÉPUBLIQUE DES LETTRES // CITATION DU PLAN</span>
+        </div>
+        <blockquote class="active-quote-text" id="active-quote-text">
+          « Ceux qui vivent, ce sont ceux qui luttent. »
+        </blockquote>
+        <div class="active-quote-meta">
+          <span class="active-quote-author" id="active-quote-author">— Victor Hugo</span>
+          <span class="active-quote-source" id="active-quote-source">Les Châtiments (1853)</span>
+        </div>
+        <div class="active-quote-translation" id="active-quote-translation">
+          "Those who live, are those who fight."
+        </div>
+      </div>
+
+      <!-- Kinetic Floating Famous French Quotes Stream Grid (60 FPS GPU Composited) -->
+      <div class="kinetic-quotes-grid" id="kinetic-quotes-grid">
+        <div class="quotes-col quotes-col-1">
+          <div class="quote-tile">« Ceux qui vivent, ce sont ceux qui luttent. » <em>— Victor Hugo</em></div>
+          <div class="quote-tile">« Le doute n'est pas une condition agréable, mais la certitude est une absurdité. » <em>— Voltaire</em></div>
+          <div class="quote-tile">« Même la nuit la plus sombre prendra fin et le soleil se lèvera. » <em>— Victor Hugo</em></div>
+          <div class="quote-tile">« Il faut cultiver notre jardin. » <em>— Voltaire</em></div>
+          <div class="quote-tile">« Ceux qui vivent, ce sont ceux qui luttent. » <em>— Victor Hugo</em></div>
+          <div class="quote-tile">« Le doute n'est pas une condition agréable, mais la certitude est une absurdité. » <em>— Voltaire</em></div>
+        </div>
+        <div class="quotes-col quotes-col-2">
+          <div class="quote-tile">« L'histoire est une galerie de tableaux où il y a peu d'originaux et beaucoup de copies. » <em>— Alexis de Tocqueville</em></div>
+          <div class="quote-tile">« L'homme est né libre, et partout il est dans les fers. » <em>— Jean-Jacques Rousseau</em></div>
+          <div class="quote-tile">« Pour savoir ce que valent les hommes, il faut les voir quand ils sont au pouvoir. » <em>— Alexis de Tocqueville</em></div>
+          <div class="quote-tile">« Il n'y a point de liberté sans lois. » <em>— Jean-Jacques Rousseau</em></div>
+          <div class="quote-tile">« L'histoire est une galerie de tableaux où il y a peu d'originaux et beaucoup de copies. » <em>— Alexis de Tocqueville</em></div>
+        </div>
+        <div class="quotes-col quotes-col-3">
+          <div class="quote-tile">« Madame Bovary, c'est moi. » <em>— Gustave Flaubert</em></div>
+          <div class="quote-tile">« Au milieu de l'hiver, j'apprenais enfin qu'il y avait en moi un été invincible. » <em>— Albert Camus</em></div>
+          <div class="quote-tile">« L'illusion est la première de toutes les vérités. » <em>— Gustave Flaubert</em></div>
+          <div class="quote-tile">« Créer, c'est vivre deux fois. » <em>— Albert Camus</em></div>
+          <div class="quote-tile">« Madame Bovary, c'est moi. » <em>— Gustave Flaubert</em></div>
+        </div>
+        <div class="quotes-col quotes-col-4">
+          <div class="quote-tile">« La liberté consiste à pouvoir faire tout ce qui ne nuit pas à autrui. » <em>— Déclaration de 1789</em></div>
+          <div class="quote-tile">« Dans une révolution, il n'y a que deux sortes de gens : ceux qui la font et ceux qui en profitent. » <em>— Napoléon Bonaparte</em></div>
+          <div class="quote-tile">« Ouvrez des écoles, vous fermerez des prisons. » <em>— Victor Hugo</em></div>
+          <div class="quote-tile">« Je ne suis pas d'accord avec ce que vous dites, mais je me battrai jusqu'à la mort pour que vous ayez le droit de le dire. » <em>— Voltaire</em></div>
+          <div class="quote-tile">« La liberté consiste à pouvoir faire tout ce qui ne nuit pas à autrui. » <em>— Déclaration de 1789</em></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. LIVE REVOLUTION BARRICADES, SILHOUETTES, CANNONS & PARTICLES CANVAS -->
+    <canvas id="revolution-canvas" class="revolution-backdrop-canvas"></canvas>
+
+    <!-- 2. TOP MONEY HEIST COMMAND HUD (FIXED AT TOP) -->
+    <header class="museum-top-hud">
+      <div class="museum-brand">
+        <div class="museum-crest">🎭</div>
+        <div class="brand-text">
+          <span class="brand-title" id="hud-brand-title">Opération Louvre : La Résistance</span>
+          <span class="brand-subtitle" id="hud-brand-subtitle">Le Professeur // Cas de Papel : Révolution</span>
+        </div>
+      </div>
+
+      <div class="hud-controls-cluster">
+        <!-- Auto-Play Slideshow Toggle Button -->
+        <button class="hud-btn hud-btn-autoplay active" id="autoplay-toggle-btn" title="Activer / Désactiver le défilement automatique des salles">
+          <span id="autoplay-icon">⏸</span>
+          <span id="autoplay-label">Auto : ON</span>
+        </button>
+
+        <!-- Audio Master ON/OFF Toggle -->
+        <button class="hud-btn" id="audio-toggle-btn" title="Activer / Désactiver la musique en boucle et les sons">
+          <span id="audio-icon">🔇</span>
+          <span id="audio-label">Bella Ciao</span>
+        </button>
+
+        <!-- Soundtrack Jukebox Selector -->
+        <div class="music-track-cluster" id="music-track-cluster">
+          <button class="track-pill active" data-track="bella_ciao" title="Bella Ciao - Suite Étendue en Boucle">🎵 Bella Ciao</button>
+          <button class="track-pill" data-track="napoleon" title="Napoléon - Marche Impériale & Fanfare d'Austerlitz">⚔️ Napoléon</button>
+          <button class="track-pill" data-track="oversimplified" title="OverSimplified - Marche Comique de la Révolution">🥖 OverSimplified</button>
+        </div>
+
+        <!-- OverSimplified Quips Fun Trigger -->
+        <button class="hud-btn hud-btn-oversimplified" id="oversimplified-btn" title="Déclencher une bulle de dialogue OverSimplified">
+          <span>🥖</span>
+          <span id="oversimplified-btn-label">OverSimplified</span>
+        </button>
+
+        <!-- Napoleonic Artillery Cannon Trigger with Screen Shake -->
+        <button class="hud-btn hud-btn-napoleon" id="cannon-blast-btn" title="Tir d'artillerie de Napoléon (Austerlitz) avec secousse d'écran">
+          <span>💥</span>
+          <span id="cannon-label">Canon</span>
+        </button>
+
+        <!-- Whole Song Lyrics Button -->
+        <button class="hud-btn" id="lyrics-toggle-btn" title="Afficher les paroles complètes de la chanson (Karaoké)">
+          <span>📜</span>
+          <span id="lyrics-btn-label">Paroles</span>
+        </button>
+
+        <!-- Mini-Games Arcade Open Button -->
+        <button class="hud-btn hud-btn-arcade" id="arcade-open-btn" title="Ouvrir l'Arcade des Mini-Jeux de la Révolution">
+          <span>🎮</span>
+          <span id="arcade-btn-label">Mini-Jeux</span>
+        </button>
+
+        <!-- Bilingual Language Toggle Button -->
+        <button class="hud-btn lang-toggle-btn" id="lang-toggle-btn" title="Changer la langue / Switch language">
+          <span class="lang-flag-indicator">
+            <span class="flag-stripe flag-blue"></span>
+            <span class="flag-stripe flag-white"></span>
+            <span class="flag-stripe flag-red"></span>
+          </span>
+          <span id="lang-btn-text">FR | EN</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 3. SCROLLABLE LOUVRE MUSEUM HEIST WAR ROOM VIEWPORT -->
+    <main class="louvre-museum-viewport" id="louvre-viewport">
+      <!-- Surveillance HUD Frame -->
+      <div class="louvre-colonnade-overlay"></div>
+
+      <!-- Grand Gallery Walls (Shows the WHOLE uncropped images & 100% verbatim text in natural vertical scroll) -->
+      <div class="gallery-wings-container" id="gallery-wings-container">
+        <!-- Dynamic Wing Dossiers Rendered via JS -->
+      </div>
+    </main>
+
+    <!-- 4. BOTTOM GALLERY WING NAVIGATION (QUICK SCROLL JUMP TO ANY WING) -->
+    <nav class="museum-bottom-nav">
+      <button class="nav-arrow-btn" id="prev-wing-btn" title="Dossier précédent (↑)">❮</button>
+      <div class="wings-carousel" id="wings-carousel">
+        <!-- Rendered dynamically via JS -->
+      </div>
+      <button class="nav-arrow-btn" id="next-wing-btn" title="Dossier suivant (↓)">❯</button>
+    </nav>
+
+  </div>
+
+  <!-- 5. HEIST ARCADE MODAL (3 INTERACTIVE MINI-GAMES) -->
+  <div class="arcade-modal-overlay" id="arcade-modal">
+    <div class="arcade-modal-container">
+      <div class="arcade-modal-header">
+        <div class="arcade-tabs-nav">
+          <button class="arcade-tab-btn active" data-game="quiz" id="tab-quiz">🧠 Quiz du Professeur</button>
+          <button class="arcade-tab-btn" data-game="vault" id="tab-vault">🔓 Coffre-Fort du Louvre</button>
+          <button class="arcade-tab-btn" data-game="arcade" id="tab-arcade">🎮 Course des Barricades</button>
+          <button class="arcade-tab-btn" data-game="artillery" id="tab-artillery">⚔️ Artillerie de Napoléon</button>
+        </div>
+        <button class="modal-close-btn" id="arcade-close-btn" title="Fermer l'Arcade (Échap)">✕</button>
+      </div>
+      <div class="arcade-game-container" id="arcade-game-container">
+        <!-- Rendered dynamically via js/minigames.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. CURATOR / PROFESSOR INSPECTION MODAL (SHOWS 100% WHOLE IMAGE & FULL VERBATIM DATA) -->
+  <div class="curator-modal-overlay" id="curator-modal">
+    <div class="curator-modal-container">
+      <div class="modal-header">
+        <div class="modal-header-left">
+          <span class="modal-wing-tag" id="modal-wing-tag">DOSSIER I</span>
+          <h2 class="modal-title" id="modal-title">Titre du Dossier</h2>
+        </div>
+        <div class="modal-header-actions">
+          <button class="modal-docent-btn" id="modal-speech-btn" title="Écouter le briefing du Professeur">
+            <span>🎙️</span>
+            <span id="modal-speech-label">Briefing Audio du Professeur</span>
+          </button>
+          <button class="modal-close-btn" id="modal-close-btn" title="Fermer le Dossier (Échap)">✕</button>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <!-- Left Visual Column (Shows the COMPLETE, FULL-RESOLUTION UNCORRUPTED IMAGE) -->
+        <div class="modal-visual-column">
+          <img src="" alt="" class="modal-image-frame" id="modal-image">
+          <p class="modal-caption" id="modal-caption"></p>
+        </div>
+
+        <!-- Right Verbatim Text Column -->
+        <div class="modal-text-column" id="modal-text-content">
+          <!-- Populated dynamically with 100% verbatim text -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. WHOLE SONG LYRICS & RESISTANCE CHANTS MODAL -->
+  <div class="lyrics-modal-overlay" id="lyrics-modal">
+    <div class="lyrics-modal-container">
+      <div class="lyrics-modal-header">
+        <div class="modal-header-left">
+          <span class="heist-tag-pill">CHANT DE LA RÉSISTANCE</span>
+          <h2 id="lyrics-modal-title">Bella Ciao (Chanson Complète)</h2>
+        </div>
+        <button class="modal-close-btn" id="lyrics-close-btn" title="Fermer (Échap)">✕</button>
+      </div>
+      <div class="lyrics-modal-tabs">
+        <button class="lyrics-tab-btn active" data-lyric="bella_ciao">🎵 Bella Ciao (Original & Traduction)</button>
+        <button class="lyrics-tab-btn" data-lyric="napoleon">⚔️ Le Chant du Départ (Napoléon)</button>
+        <button class="lyrics-tab-btn" data-lyric="marseillaise">🇫🇷 La Marseillaise (1792)</button>
+      </div>
+      <div class="lyrics-modal-body" id="lyrics-content">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/content-data.js"></script>
+  <script src="js/revolution-fx.js"></script>
+  <script src="js/minigames.js"></script>
+  <script src="js/louvre-scene.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
